@@ -26,12 +26,12 @@ Meteor.methods({
     TasksCollection.remove(taskId);
   },
 
-  "tasks.setIsCheck"(taskId, isChecked) {
+  "tasks.setIsChecked"(taskId, isChecked) {
     check(taskId, String);
     check(isChecked, Boolean);
 
     if (!this.userId) {
-      throw new Meteor.Error("Not authorized");
+      throw new Meteor.Error("Not authorized.");
     }
 
     TasksCollection.update(taskId, {
